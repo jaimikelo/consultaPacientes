@@ -23,7 +23,6 @@ def fetch_data(rut):
     else:
         return {"error": f"Error en la consulta: Código {response.status_code}"}
 
-
 estados_cita = {
     '0': 'ELIMINADA',
     '47': 'NO CONFIRMADA',
@@ -139,7 +138,6 @@ label_font = font.Font(size=30)  # Ajusta el tamaño para el label
 entry_font = font.Font(size=40)  # Ajusta el tamaño para el texto del entry
 custom_font = font.Font(family="Helvetica", size=30)  # Cambia "Helvetica" y 12 al tipo y tamaño deseado
 
-
 # LABEL CON FUENTE PERSONALIZADA
 label = tk.Label(root, text="", font=label_font)
 label.grid(row=0, column=1, padx=10, pady=10, sticky="sew")
@@ -158,10 +156,6 @@ text_widget.grid(row=3, column=1, padx=10, pady=10, sticky="ew")
 text_widget.tag_configure("custom_font", font=custom_font)
 text_widget.tag_configure("center", justify='center')
 text_widget.config(state="disabled")
-
-# Crear un botón para actualizar los datos
-# fetch_button = tk.Button(root, text="Consultar Cita", command=update_display)
-# fetch_button.grid(row=4, column=1, padx=10, pady=10, sticky="ew")
 
 # CARGAR LA IMAGEN DEL LOGO
 original_image = Image.open("logo.png")  # Reemplaza con la ruta a tu imagen
