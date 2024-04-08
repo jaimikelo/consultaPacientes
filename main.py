@@ -170,7 +170,7 @@ logo_image = ImageTk.PhotoImage(resized_image)
 
 # CREAR UN LABEL PARA EL LOGO Y POSICIONARLO EN LA PARTE SUPERIOR IZQUIERDA
 logo_label = tk.Label(root, image=logo_image)
-logo_label.place(x=0, y=0)
+logo_label.place(x=10, y=10)
 
 # INICIAR LA APLICACIÓN
 root.mainloop()
