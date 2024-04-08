@@ -39,7 +39,24 @@ estados_cita = {
 
 def update_display():
 
-    rut = rut_entry.get()
+    url = rut_entry.get()
+
+    if "https" in url:
+            # Reemplazar caracteres inusuales para hacer el parseo más sencillo
+        url_limpia = url.replace('¿', '?').replace('Ñ--', '://').replace("'", "-")
+
+        # Dividir la URL en partes
+        partes = url_limpia.split('/')
+
+        # Encontrar y extraer el RUT
+        rut = None
+        for parte in partes:
+            if "RUN?" in parte:
+                rut = parte.split('?')[-1].split('/')[0].split('-')[0] + '-' + parte.split('?')[-1].split('/')[0].split('-')[1]
+                break
+    else: 
+        rut = rut_entry.get()
+
     text_to_display = ""
 
     if rut:  # Verificar que el campo RUT no esté vacío
