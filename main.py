@@ -12,7 +12,6 @@ def fetch_data(rut):
     data = {'rut': rut}
     response = requests.post(url, headers=headers, data=data)
 
-
     if response.status_code == 200:
         print("Paciente Encontrado!")
         return response.json()
@@ -22,7 +21,6 @@ def fetch_data(rut):
         return {"error": error_message}
     else:
         return {"error": f"Error en la consulta: Código {response.status_code}"}
-
 
 estados_cita = {
     '0': 'ELIMINADA',
@@ -129,8 +127,6 @@ def formatear_rut(rut):
     )
 
     return rut_formateado
-
-
 
 
 # CREAR LA VENTANA PRINCIPAL
