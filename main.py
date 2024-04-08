@@ -47,7 +47,12 @@ def update_display():
 
         if "error" in data:
             rut_entry.delete(0, tk.END)
-            text_to_display = f"Error\n{data['error']}"
+            error = data['error']
+            print(error)
+            if error == "Paciente no encontrado":
+                text_to_display = f"Error\n{data['error']}\n\nPaciente nuevo, pasar al totem"
+            else:
+                text_to_display = f"Error\n{data['error']}\n\nSolicitar al paciente que se registre"
 
             text_widget.config(state=tk.NORMAL)
             text_widget.delete(1.0, tk.END)
@@ -152,6 +157,7 @@ text_widget = tk.Text(root, height=25, width=50)
 text_widget.grid(row=3, column=1, padx=10, pady=10, sticky="ew")
 text_widget.tag_configure("custom_font", font=custom_font)
 text_widget.tag_configure("center", justify='center')
+text_widget.config(state="disabled")
 
 # Crear un botón para actualizar los datos
 # fetch_button = tk.Button(root, text="Consultar Cita", command=update_display)
